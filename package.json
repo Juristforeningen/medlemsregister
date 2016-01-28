@@ -1,0 +1,29 @@
+{
+  "name": "medlemsregister",
+  "version": "0.0.1",
+  "description": "Medlemsregister for Juristforeningen",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "npm run lint && mocha test/test.js",
+    "lint": "eslint .",
+    "start": "node app.js"
+  },
+  "author": {
+    "name": "Anders Olsen Sandvik",
+    "email": "npm@andersos.net"
+  },
+  "repository": "Juristforeningen/medlemsregister",
+  "bugs": {
+    "url": "https://github.com/Juristforeningen/medlemsregister/issues"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-andersos": "^0.1.1",
+    "mocha": "^2.4.5",
+    "supertest": "^1.1.0"
+  },
+  "dependencies": {
+    "koa": "^1.1.2"
+  }
+}
