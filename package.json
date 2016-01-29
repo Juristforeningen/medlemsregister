@@ -24,6 +24,7 @@
     "supertest": "^1.1.0"
   },
   "dependencies": {
-    "koa": "^1.1.2"
+    "koa": "^1.1.2",
+    "koa-views": "^4.0.1"
   }
 }
