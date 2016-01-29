@@ -1,1 +1,1 @@
-# Medlemsregister
+# Medlemsregister [![Build Status](https://travis-ci.org/Juristforeningen/medlemsregister.svg?branch=master)](https://travis-ci.org/Juristforeningen/medlemsregister)
