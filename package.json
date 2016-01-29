@@ -24,6 +24,7 @@
     "supertest": "^1.1.0"
   },
   "dependencies": {
+    "handlebars": "^4.0.5",
     "koa": "^1.1.2",
     "koa-views": "^4.0.1"
   }
