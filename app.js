@@ -10,7 +10,7 @@ app.use(views(__dirname + '/views', {
 
 app.use(function *() {
   yield this.render('template', {
-    content: 'Hello '
+    content: 'Hello'
   });
 });
 
