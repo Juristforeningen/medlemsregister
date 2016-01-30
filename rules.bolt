@@ -1,0 +1,13 @@
+type User {
+  uid: String,
+  name: String,
+  email:  String,
+  isMember: Boolean
+}
+
+path /users/{$uid} is User {
+  read() { isCurrentUser($uid) }
+  write() { isCurrentUser($uid) }
+}
+
+isCurrentUser(uid) { auth != null && auth.uid == uid }

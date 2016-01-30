@@ -8,7 +8,8 @@
     "test": "npm run lint && mocha test/test.js",
     "lint": "eslint .",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "rules": "firebase-bolt < rules.bolt > rules.json"
   },
   "author": {
     "name": "Anders Olsen Sandvik",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "eslint": "^1.10.3",
     "eslint-config-andersos": "^0.1.1",
+    "firebase-bolt": "^0.8.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.8.1",
     "supertest": "^1.1.0"
