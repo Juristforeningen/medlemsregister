@@ -21,7 +21,7 @@ describe('Website', function () {
     request
     .get('/login')
     .expect(200)
-    .expect(/Log in/, done);
+    .expect(/Logg inn/, done);
   });
 
   it('recover should contain Glemt passord', function (done) {
