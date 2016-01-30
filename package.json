@@ -7,7 +7,8 @@
   "scripts": {
     "test": "npm run lint && mocha test/test.js",
     "lint": "eslint .",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": {
     "name": "Anders Olsen Sandvik",
@@ -21,11 +22,13 @@
     "eslint": "^1.10.3",
     "eslint-config-andersos": "^0.1.1",
     "mocha": "^2.4.5",
+    "nodemon": "^1.8.1",
     "supertest": "^1.1.0"
   },
   "dependencies": {
-    "handlebars": "^4.0.5",
+    "firebase-token-generator": "^2.0.0",
     "koa": "^1.1.2",
-    "koa-views": "^4.0.1"
+    "koa-hbs": "^0.7.0",
+    "koa-router": "^5.3.0"
   }
 }

@@ -1,0 +1,38 @@
+<!-- RECOVER -->
+<form id="recover" class="pure-form pure-form-stacked" role="form">
+  <fieldset>
+    <h2>Endre passord</h2>
+
+    <label for="email">E-post</label>
+    <input id="email" type="email" placeholder="Epost">
+
+    <label for="oldpassword">Gammelt passord</label>
+    <input id="oldpassword" type="password" placeholder="Gammelt passord">
+
+    <label for="newpassword">Nytt passord</label>
+    <input id="newpassword" type="password" placeholder="Nytt passord">
+
+    <button type="submit" class="pure-button pure-button-primary">Endre passord</button>
+  </fieldset>
+</form>
+<script>
+document.getElementById("recover").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var user = {
+    email: document.getElementById("email").value.trim(),
+    oldPassword: document.getElementById("oldpassword").value.trim(),
+    newPassword: document.getElementById("newpassword").value.trim()
+  };
+  ref.changePassword(user, function(error) {
+    if (error) {
+      showMessage(err);
+    } else {
+      var change = {
+        message: "Vi har endret passordet ditt"
+      }
+      showMessage(change, "success");
+    }
+  });
+});
+</script>
+<!-- / RECOVER -->

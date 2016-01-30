@@ -1,17 +1,13 @@
 var koa = require('koa');
 var app = module.exports = koa();
-var views = require('koa-views');
+var koahbs = require('koa-hbs');
 
-app.use(views(__dirname + '/views', {
-  map: {
-    html: 'handlebars'
-  }
+app.use(koahbs.middleware({
+  viewPath: __dirname + '/views',
+  partialsPath: __dirname + '/views/partials',
+  defaultLayout: 'main'
 }));
 
-app.use(function *() {
-  yield this.render('template', {
-    content: 'Hello'
-  });
-});
+require('./routes')(app);
 
 if (!module.parent) app.listen(process.env.PORT || 3000);
