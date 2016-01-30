@@ -12,6 +12,9 @@ module.exports = function (app) {
   .get('/recover', function *() {
     yield this.render('recover');
   })
+  .get('/admin', function *() {
+    yield this.render('admin');
+  })
   .get('/change', function *() {
     yield this.render('change');
   });
