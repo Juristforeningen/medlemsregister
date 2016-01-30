@@ -51,4 +51,11 @@ describe('Website', function () {
     .expect(200)
     .expect(/Medlemsoversikt/, done);
   });
+
+  it('calendar should contain JF Arrangementer', function (done) {
+    request
+    .get('/members')
+    .expect(200)
+    .expect(/JF Arrangementer/, done);
+  });
 });

@@ -18,6 +18,9 @@ module.exports = function (app) {
   .get('/bli-medlem', function *() {
     yield this.render('bli-medlem');
   })
+  .get('/calendar', function *() {
+    yield this.render('calendar');
+  })
   .get('/change', function *() {
     yield this.render('change');
   });
