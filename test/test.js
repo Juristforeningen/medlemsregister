@@ -56,6 +56,6 @@ describe('Website', function () {
     request
     .get('/members')
     .expect(200)
-    .expect(/JF Arrangementer/, done);
+    .expect(/calendar-container/, done);
   });
 });
