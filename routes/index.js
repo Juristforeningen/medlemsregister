@@ -12,8 +12,8 @@ module.exports = function (app) {
   .get('/recover', function *() {
     yield this.render('recover');
   })
-  .get('/admin', function *() {
-    yield this.render('admin');
+  .get('/members', function *() {
+    yield this.render('members');
   })
   .get('/bli-medlem', function *() {
     yield this.render('bli-medlem');

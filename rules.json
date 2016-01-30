@@ -2,7 +2,7 @@
   "rules": {
     "users": {
       "$uid": {
-        ".validate": "newData.hasChildren(['uid', 'name', 'email', 'isMember'])",
+        ".validate": "newData.hasChildren(['uid', 'name', 'email', 'classOf', 'isMember', 'isAdmin'])",
         "uid": {
           ".validate": "newData.isString()"
         },
@@ -12,7 +12,13 @@
         "email": {
           ".validate": "newData.isString()"
         },
+        "classOf": {
+          ".validate": "newData.isString()"
+        },
         "isMember": {
+          ".validate": "newData.isBoolean()"
+        },
+        "isAdmin": {
           ".validate": "newData.isBoolean()"
         },
         "$other": {

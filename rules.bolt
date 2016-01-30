@@ -2,7 +2,9 @@ type User {
   uid: String,
   name: String,
   email:  String,
-  isMember: Boolean
+  classOf: String,
+  isMember: Boolean,
+  isAdmin: Boolean
 }
 
 path /users/{$uid} is User {
