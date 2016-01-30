@@ -37,4 +37,12 @@ describe('Website', function () {
     .expect(200)
     .expect(/Endre passord/, done);
   });
+
+  it('bli-medlem should contain Bli medlem', function (done) {
+    request
+    .get('/bli-medlem')
+    .expect(200)
+    .expect(/Bli medlem/, done);
+  });
+
 });
