@@ -45,4 +45,10 @@ describe('Website', function () {
     .expect(/Bli medlem/, done);
   });
 
+  it('members should contain Medlemsoversikt', function (done) {
+    request
+    .get('/members')
+    .expect(200)
+    .expect(/Medlemsoversikt/, done);
+  });
 });
