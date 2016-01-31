@@ -1,15 +1,19 @@
 type User {
-  uid: String,
   name: String,
   email:  String,
   classOf: String,
   isMember: Boolean,
-  isAdmin: Boolean
 }
 
-path /users/{$uid} is User {
-  read() { isCurrentUser($uid) }
-  write() { isCurrentUser($uid) }
+path /users/{uid} is User {
+  read() { isCurrentUser(uid) || isAdmin(uid) }
+  write() { isCurrentUser(uid) || isAdmin(uid) }
+  validate() { this.isMember === false || isAdmin(uid) }
+}
+
+path /users {
+  read() { isAdmin(auth.uid) }
 }
 
 isCurrentUser(uid) { auth != null && auth.uid == uid }
+isAdmin(uid) { auth != null && root.admins[auth.uid] != null }

@@ -15,7 +15,58 @@
     <button type="submit" class="pure-button pure-button-primary">Lag bruker</button>
   </fieldset>
 </form>
+
+<form id="user" class="pure-form pure-form-stacked" role="form">
+  <fieldset>
+    <h2>Profil</h2>
+
+    <label for="username">Navn</label>
+    <input id="username" type="text" placeholder="Navn">
+
+    <label for="classof">Årskull</label>
+        <select id="classof">
+            <option>Høst 2009</option>
+            <option>Vår 2010</option>
+            <option>Høst 2010</option>
+            <option>Vår 2011</option>
+            <option>Høst 2011</option>
+            <option>Vår 2012</option>
+            <option>Høst 2012</option>
+            <option>Vår 2013</option>
+            <option>Høst 2013</option>
+            <option>Vår 2014</option>
+            <option>Høst 2014</option>
+            <option>Vår 2015</option>
+            <option>Høst 2015</option>
+            <option>Vår 2016</option>
+            <option selected>Høst 2016</option>
+        </select>
+
+    <button type="submit" class="pure-button pure-button-primary">Oppdater profil</button>
+  </fieldset>
+</form>
 <script>
+// Edit user
+document.getElementById("user").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var ref = new Firebase("https://juristforeningen.firebaseio.com");
+  var authData = ref.getAuth();
+  var usersRef = ref.child("users/" + authData.uid)
+  usersRef.update({
+    "name": document.getElementById("username").value,
+    "email": authData.password.email,
+    "classOf": document.getElementById("classof").value,
+    "isMember": true
+  }, function(error) {
+    if (error) {
+      alert("Data could not be saved." + error);
+    } else {
+      alert("Data saved successfully.");
+    }
+  });
+});
+
+// Registration
 document.getElementById("register").addEventListener("submit", function (e) {
   e.preventDefault();
   var user = {

@@ -66,16 +66,17 @@
   var loginbutton = document.getElementById("loginbutton");
   var logoutbutton = document.getElementById("logoutbutton");
   var profile = document.getElementById("profile");
+  var user = document.getElementById("user");
 
   function loggedIn(profileData) {
-    if(register) { hide(register); }
+    if(register) { hide(register); show(user); }
     hide(loginbutton);
     show(logoutbutton);
     show(profile);
   }
 
   function loggedOut() {
-    if(register) { show(register); }
+    if(register) { show(register); hide(user); }
     show(loginbutton);
     hide(logoutbutton);
     hide(profile);
@@ -103,7 +104,6 @@
 
   document.getElementById("logoutbutton").addEventListener("click", function () {
     ref.unauth();
-    //location.reload();
   });
 
   function createUser(userObj) {

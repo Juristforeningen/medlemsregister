@@ -2,10 +2,7 @@
   "rules": {
     "users": {
       "$uid": {
-        ".validate": "newData.hasChildren(['uid', 'name', 'email', 'classOf', 'isMember', 'isAdmin'])",
-        "uid": {
-          ".validate": "newData.isString()"
-        },
+        ".validate": "newData.hasChildren(['name', 'email', 'classOf', 'isMember']) && (newData.child('isMember').val() == false || auth != null && newData.parent().parent().child('admins').child(auth.uid).val() != null)",
         "name": {
           ".validate": "newData.isString()"
         },
@@ -18,15 +15,13 @@
         "isMember": {
           ".validate": "newData.isBoolean()"
         },
-        "isAdmin": {
-          ".validate": "newData.isBoolean()"
-        },
         "$other": {
           ".validate": "false"
         },
-        ".read": "auth != null && auth.uid == $uid",
-        ".write": "auth != null && auth.uid == $uid"
-      }
+        ".read": "auth != null && auth.uid == $uid || auth != null && root.child('admins').child(auth.uid).val() != null",
+        ".write": "auth != null && auth.uid == $uid || auth != null && newData.parent().parent().child('admins').child(auth.uid).val() != null"
+      },
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() != null"
     }
   }
 }
