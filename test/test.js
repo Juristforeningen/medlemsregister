@@ -52,9 +52,9 @@ describe('Website', function () {
     .expect(/Medlemsoversikt/, done);
   });
 
-  it('calendar should contain JF Arrangementer', function (done) {
+  it('calendar should contain calendar-container', function (done) {
     request
-    .get('/members')
+    .get('/calendar')
     .expect(200)
     .expect(/calendar-container/, done);
   });
