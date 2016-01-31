@@ -1,28 +1,46 @@
 <h2>Medlemsoversikt</h2>
 
-<table class="pure-table">
+<table id="members" class="pure-table">
   <thead>
     <tr>
       <th>Navn</th>
       <th>Årskull</th>
       <th>Medlem</th>
-      <th>Admin</th>
     </tr>
   </thead>
 
   <tbody>
-    <tr>
-      <td>Peder Ås</td>
-      <td>Høst 1908</td>
-      <td>Ja (<a href="#">Fjern medlem</a>)</td>
-      <td>Nei</td>
-    </tr>
 
-    <tr>
-      <td>Marte Kirkerud</td>
-      <td>Vår 1908</td>
-      <td>Nei (<a href="#">Gi medlem</a>)</td>
-      <td>Nei</td>
-    </tr>
   </tbody>
 </table>
+<script>
+var ref = new Firebase("https://juristforeningen.firebaseio.com/users");
+
+function addRow(name, classof, member) {
+    var tableRef = document.getElementById("members").getElementsByTagName('tbody')[0];
+    var newRow   = tableRef.insertRow();
+    var newCell  = newRow.insertCell();
+    newCell.appendChild(document.createTextNode(name));
+
+//  var row = table.insertRow()
+//  row.insertCelle().appendChild(document.createTextNode(name));
+//  row.insertCelle().appendChild(document.createTextNode(classof));
+//  row.insertCelle().appendChild(document.createTextNode(member));
+}
+
+ref.on("child_added", function(snapshot) {
+  addRow(snapshot.val().name, snapshot.val().classof, snapshot.val().member);
+});
+</script>
+
+<tr>
+  <td>Peder Ås</td>
+  <td>Høst 1908</td>
+  <td>Ja (<a href="#">Fjern medlem</a>)</td>
+</tr>
+
+<tr>
+  <td>Marte Kirkerud</td>
+  <td>Vår 1908</td>
+  <td>Nei (<a href="#">Gi medlem</a>)</td>
+</tr>
